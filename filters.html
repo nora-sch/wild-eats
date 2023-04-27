@@ -1,0 +1,67 @@
+<div class="filter-wrapper">
+    <div class="searchbar-wrapper">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="Search..." />
+    </div>
+    <form>
+      <fieldset>
+        <legend>Trier par</legend>
+        <p>
+          <input type="radio" name="size" id="size_1" value="small" />
+          <label for="size_1">Meilleures notes</label>
+        </p>
+        <p>
+          <input type="radio" name="size" id="size_2" value="medium" />
+          <label for="size_2">Prix</label>
+        </p>
+        <p class="division-line"></p>
+      </fieldset>
+
+      <fieldset>
+        <legend>
+          Specialité <i class="fa-solid fa-circle-chevron-down"></i>
+          <i class="fa-solid fa-circle-chevron-up"></i>
+        </legend>
+        <p>
+          <input type="checkbox" />
+          <span class="checkmark"></span>
+          <label for="size_2">xx</label>
+        </p>
+        <p>
+          <input type="checkbox" />
+          <span class="checkmark"></span>
+          <label for="size_2">yy</label>
+        </p>
+        <p>
+          <input type="checkbox" />
+          <span class="checkmark"></span>
+          <label for="size_2">zz</label>
+        </p>
+        <p>
+          <input type="checkbox" />
+          <span class="checkmark"></span>
+          <label for="size_2">ww</label>
+        </p>
+        <p>
+          <input type="checkbox" />
+          <span class="checkmark"></span>
+          <label for="size_2">qq</label>
+        </p>
+        <p class="division-line"></p>
+      </fieldset>
+      <fieldset>
+          <legend>Prix</legend>
+        <div class="slidecontainer">
+          <div id = "slider-value"></div>
+          <input
+            type="range"
+            min="1"
+            max="100"
+            value="50"
+            class="slider"
+            id="myRange"
+          />
+        </div>
+      </fieldset>
+    </form>
+  </div>

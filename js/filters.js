@@ -1,3 +1,31 @@
+// get all restaurants sorted by note descendant
+const getAllNoteDesc = (data) => {
+  let allDesc = [];
+
+  for (let i = 5; i > 0; i--) {
+    data.forEach((restaurant) => {
+      if (restaurant.note === i) {
+        allDesc.push(restaurant);
+      }
+    });
+  }
+  return allDesc;
+};
+
+// get all restaurants sorted by note ascendant
+const getAllNoteAsc = (data) => {
+    let allAsc = [];
+  
+    for (let i = 1; i <= 5; i++) {
+      data.forEach((restaurant) => {
+        if (restaurant.note === i) {
+            allAsc.push(restaurant);
+        }
+      });
+    }
+    return allAsc;
+  };
+
 // get top 10 restaurants
 /**
  *
@@ -21,6 +49,8 @@ const getTop10 = (data) => {
 
 // ======= EXPORTS =======
 
-module.exports = { getTop10 };
-
-
+module.exports = {
+  getTop10,
+  getAllNoteDesc,
+  getAllNoteAsc
+};

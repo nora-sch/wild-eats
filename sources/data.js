@@ -351,3 +351,5 @@ const restaurants = [
 	]     
     }
 ]
+
+module.exports = restaurants;

@@ -1,0 +1,11 @@
+{
+  "name": "wild-eats",
+  "version": "1.0.0",
+  "description": "WILD projet  - site web de meilleurs restaurants à Aix en Provence",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nora Sumane & Leon Atzori",
+  "license": "ISC"
+}

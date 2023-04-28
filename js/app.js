@@ -11,8 +11,19 @@
 let slider = document.querySelector(".slider");
 let sliderValue = document.querySelector(".slider").value;
 let sliderValueDisplay = document.querySelector("#slider-value");
-slider.addEventListener("change", (event) => {
-  sliderValueDisplay.innerHTML = sliderValue;
+let maxValue = 100;
+document.querySelector(".slider").defaultValue = maxValue;
+sliderValueDisplay.textContent = sliderValue;
+slider.addEventListener("input", (event) => {
+  sliderValueDisplay.textContent = event.target.value;
   console.log(sliderValue);
+  // console.log(event);
+});
+
+let filterForm = document.forms["filter-form"];
+
+filterForm.addEventListener("submit", (event) => {
+  event.preventDefault();
   console.log(event);
+  console.log(this.priceRange.value);
 });

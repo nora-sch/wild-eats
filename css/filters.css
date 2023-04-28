@@ -16,7 +16,7 @@ fieldset{
     padding-bottom: 10px; margin-bottom: 10px
 }
 input[type=range].slider{
-    -webkit-appearance: none;     /*nécessaire pour Chrome */
+    -webkit-appearance: none; /*nécessaire pour Chrome */
     /* color:var(--light-color); */
     border:none;
     width: 100%;

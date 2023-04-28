@@ -7,6 +7,9 @@
     --element-color-light: #DDA15E;
 
 }
+body{
+  color: var(--font-color);
+}
 fieldset{
     border: 0;
 }
@@ -15,6 +18,10 @@ fieldset{
     border-color: var(--light-color);
     padding-bottom: 10px; margin-bottom: 10px
 }
+.slidecontainer{
+/* margin-top:10px; */
+}
+
 input[type=range].slider{
     -webkit-appearance: none; /*nécessaire pour Chrome */
     /* color:var(--light-color); */
@@ -39,7 +46,11 @@ input[type=range].slider{
   }
 
   #slider-value{
-    color:red;
+position:absolute;
+font-size: 12px;
+  }
+  #form-price-section>legend{
+margin-bottom: 20px;
   }
  
   

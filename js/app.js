@@ -66,17 +66,17 @@ slider.addEventListener("click", (event) => {
     sliderValueDisplay.style.left = cursorX - 6 + "px";
   }
 });
-this.addEventListener("mousemove", (event) => {
-  var cursorX = event.pageX;
-  sliderValueDisplay.style.top = sliderTop - 28 + "px";
-  if (cursorX < sliderLeft + 7) {
-    sliderValueDisplay.style.left = sliderLeft + 7 + "px";
-  } else if (cursorX > sliderWidth + 7) {
-    sliderValueDisplay.style.left = sliderWidth + "px";
-  } else {
-    sliderValueDisplay.style.left = cursorX - 6 + "px";
-  }
-});
+// this.addEventListener("mousemove", (event) => {
+//   var cursorX = event.pageX;
+//   sliderValueDisplay.style.top = sliderTop - 28 + "px";
+//   if (cursorX < sliderLeft + 7) {
+//     sliderValueDisplay.style.left = sliderLeft + 7 + "px";
+//   } else if (cursorX > sliderWidth + 7) {
+//     sliderValueDisplay.style.left = sliderWidth + "px";
+//   } else {
+//     sliderValueDisplay.style.left = cursorX - 6 + "px";
+//   }
+// });
 
 // FORM VALUES
 let filterForm = document.forms["filter-form"];

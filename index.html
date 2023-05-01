@@ -17,11 +17,11 @@
     <div class="filter-wrapper">
       <div class="searchbar-wrapper">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" placeholder="Search..." />
+        <input type="text" class="search-field" />
       </div>
       <form id="filter-form" name="filter-form" action="" method="post">
         <fieldset id="form-sort-section">
-          <legend>Trier par</legend>
+          <legend><span class="form-section-title">Trier par</span></legend>
           <p>
             <input
               type="radio"
@@ -41,17 +41,13 @@
 
         <fieldset class="form-checkbox-section">
           <legend class="checkbox-section-title">
-            Specialité
-            <span   class  = "open-button" id="open-specialite">
-            <i
-              class="fa-solid fa-circle-chevron-down "
-            
-            ></i></span>
-            <span  id="close-specialite" class = "close-button hidden">
-            <i
-              class="fa-solid fa-circle-chevron-up "
-             
-            ></i></span>
+            <span class="form-section-title">Specialité </span>
+            <span class="open-button" id="open-specialite">
+              <i class="fa-solid fa-circle-chevron-down"></i
+            ></span>
+            <span id="close-specialite" class="close-button hidden">
+              <i class="fa-solid fa-circle-chevron-up"></i
+            ></span>
           </legend>
           <div id="foldable-specialite" class="hidden">
             <p>
@@ -108,7 +104,7 @@
           <p class="division-line"></p>
         </fieldset>
         <fieldset id="form-price-section">
-          <legend>Prix</legend>
+          <legend><span class="form-section-title">Prix</span></legend>
           <div class="slidecontainer">
             <output id="slider-value"></output>
             <input
@@ -121,8 +117,10 @@
             />
           </div>
         </fieldset>
-        <input type="reset" value="Reinitialiser" />
-        <input type="submit" value="Valider" />
+        <div class="form-footer">
+          <input type="reset" value="Reinitialiser" />
+          <input type="submit" value="Valider" />
+        </div>
       </form>
     </div>
 

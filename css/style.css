@@ -11,20 +11,4 @@
 body {
   font-family: "Nunito", sans-serif;
 }
-aside {
-  background-color: var(--element-color-light);
-}
 
-#filter-form input[type="submit"] {
-  background-color: var(--font-color);
-  border-radius: 20px;
-  color: #e0dede;
-  border: none;
-  padding: 5px 10px;
-}
-#filter-form input[type="reset"] {
-  background-color: var(--light-color);
-  border-radius: 20px;
-  border: none;
-  padding: 5px 10px;
-}

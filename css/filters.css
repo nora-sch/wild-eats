@@ -52,10 +52,83 @@ font-size: 12px;
   #form-price-section>legend{
 margin-bottom: 20px;
   }
- 
-  
-  
- 
+
+  input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: var(--light-color);
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: var(--accent-color);
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+/* input[type=checkbox] {
+  accent-color: var(--accent-color);
+} */
+
+input[type='checkbox']:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 5px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: var(--light-color);
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+input[type='checkbox']:checked:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 5px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: var(--accent-color);
+  content: '\f00c';
+  font-family: FontAwesome; 
+  color:white;
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+/* input[type='checkbox']:checked:after {
+  content: '\f00c';
+  font-family: FontAwesome; 
+  font: var(--fa-font-solid);
+  color:white;
+} */
+
+.open-button:hover, .close-button:hover, input[type='checkbox'], input[type='radio'], input[type='reset'], input[type='submit']{
+  cursor: pointer;
+}
+.hidden {
+  display: none;
+}
+
+
  
  
  

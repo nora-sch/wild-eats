@@ -8,6 +8,34 @@
 
 // ===== DOM =====
 
+// FOLD / OPEN CHECKBOX SECTION
+
+let openButtons = document.querySelectorAll(".open-button");
+openButtons.forEach((open) => {
+  open.addEventListener("click", (event) => {
+    let ifOpen = false;
+    let foldable = document.querySelector("#foldable-specialite");
+    foldable.classList.remove('hidden');
+    foldable.style.transitionDuration = "500ms";
+    let closeButton = document.querySelector('#close-specialite');
+    closeButton.classList.remove('hidden');
+    open.classList.add('hidden');
+   });
+});
+let closeButtons = document.querySelectorAll(".close-button");
+closeButtons.forEach((close) => {
+  close.addEventListener("click", (event) => {
+    let ifOpen = false;
+    let foldable = document.querySelector("#foldable-specialite");
+    foldable.classList.add('hidden');
+    foldable.style.transitionDuration = "500ms";
+    let openButton = document.querySelector('#open-specialite');
+    openButton.classList.remove('hidden');
+    close.classList.add('hidden');
+   });
+});
+
+
 // SLIDER
 let slider = document.querySelector(".slider");
 let sliderValue = document.querySelector(".slider").value;
@@ -56,5 +84,25 @@ let filterForm = document.forms["filter-form"];
 filterForm.addEventListener("submit", (event) => {
   event.preventDefault();
   console.log(event);
+
+  let sort = document.getElementsByName("sortBy");
+  let sortValue;
+  for (var i = 0; i < sort.length; i++) {
+    if (sort[i].checked) {
+      sortValue = sort[i].value;
+    }
+  }
+
+  console.log(sortValue);
+
+  let checkBoxes = document.querySelectorAll(".form-checkbox");
+  let checkedBoxes = [];
+  for (let box of checkBoxes) {
+    if (box.checked == true) {
+      checkedBoxes.push(box.value);
+    }
+  }
+
+  console.log(checkedBoxes);
   console.log(this.priceRange.value);
 });

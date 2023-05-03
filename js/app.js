@@ -51,7 +51,7 @@ slider.addEventListener("input", (event) => {
 let sliderLeft = slider.offsetLeft; //readonly
 let sliderTop = slider.offsetTop; //readonly
 let sliderWidth = slider.offsetWidth; //readonly
-console.log(sliderLeft, sliderWidth);
+// console.log(sliderLeft, sliderWidth);
 sliderValueDisplay.style.left = sliderWidth + "px";
 sliderValueDisplay.style.top = sliderTop - 28 + "px";
 
@@ -83,7 +83,7 @@ let filterForm = document.forms["filter-form"];
 
 filterForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  console.log(event);
+  // console.log(event);
 
   let sort = document.getElementsByName("sortBy");
   let sortValue;
@@ -104,5 +104,14 @@ filterForm.addEventListener("submit", (event) => {
   }
 
   console.log(checkedBoxes);
+  console.log(this.priceRange.value);
+});
+
+
+filterForm.addEventListener("reset", (event) => {
+  console.log('reset');
+  sliderValueDisplay.textContent = sliderValue;
+  // console.log(sortValue);
+  // console.log(checkedBoxes);
   console.log(this.priceRange.value);
 });

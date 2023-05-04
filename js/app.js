@@ -1,5 +1,13 @@
 console.log(restaurants);
-import {getTop10, getAllNoteDesc, getAllNoteAsc, getAllFiltersToDisplay} from './filters.js'
+import {
+  getTop10,
+  getAllNoteDesc,
+  getAllNoteAsc,
+  getAllFiltersToDisplay,
+} from "./filters.js";
+
+const allFiltersToDisplay = getAllFiltersToDisplay(restaurants);
+console.log(allFiltersToDisplay);
 // const data = require('../sources/data.js');
 // const {getTop10, getAllNoteDesc, getAllNoteAsc} = require('./filters.js');
 
@@ -7,7 +15,6 @@ import {getTop10, getAllNoteDesc, getAllNoteAsc, getAllFiltersToDisplay} from '.
 // const top10Length = getTop10(data).length; // nb of restaurants
 // const allSortDescendant = getAllNoteDesc(data); // all restaurants sorted by note Desc
 // const allSortAscendant = getAllNoteAsc(data); // all restaurants sorted by note Asc
-
 
 // const {getTop10, getAllNoteDesc, getAllNoteAsc} = require/filters.js');
 
@@ -23,6 +30,7 @@ const allSortAscendant = getAllNoteAsc(restaurants); // all restaurants sorted b
 let openButtons = document.querySelectorAll(".open-button");
 openButtons.forEach((open) => {
   open.addEventListener("click", (event) => {
+    console.log("click");
     let ifOpen = false;
     let foldable = document.querySelector("#foldable-specialite");
     foldable.classList.remove("hidden");
@@ -48,9 +56,10 @@ closeButtons.forEach((close) => {
 
 // SLIDER
 let slider = document.querySelector(".slider");
+let maxValue = allFiltersToDisplay.price;
 let sliderValue = document.querySelector(".slider").value;
+document.querySelector(".slider").max = maxValue;
 let sliderValueDisplay = document.querySelector("#slider-value");
-let maxValue = 100;
 sliderValue = maxValue;
 document.querySelector(".slider").defaultValue = maxValue;
 sliderValueDisplay.textContent = sliderValue;
@@ -95,17 +104,45 @@ const filters = {
   speciality: [],
   diet: [],
   organisation: [],
-  maxPrice: "xx" /*from data max*/,
+  maxPrice: allFiltersToDisplay.price,
 };
 
 // ADD FILTER DOM
+
+const sortBoxSection = document.querySelector(".form-sort-section");
 const checkBoxSection = document.querySelector(".form-checkbox-section");
 
-const allFiltersToDisplay = getAllFiltersToDisplay(restaurants);
-console.log(allFiltersToDisplay);
-  checkBoxSection.insertAdjacentHTML(
+// SORT section
+sortBoxSection.insertAdjacentHTML(
+  "beforeend",
+  `<legend><span class="form-section-title">Trier par</span></legend>`
+);
+allFiltersToDisplay.sortBy.forEach((sort) => {
+  sortBoxSection.insertAdjacentHTML(
     "beforeend",
-    `<legend class="checkbox-section-title">
+    `<p>
+      <input
+        type="radio"
+        name="sortBy"
+        id="sortBy${camelCase(sort)}"
+        value="${camelCase(sort)}"
+      />
+      <label for="sortBy${camelCase(sort)}">${firstToUpperCase(sort)}</label>
+    </p>  
+    `
+  );
+  sortBoxSection.insertAdjacentHTML(
+    "beforeend",
+    `<p class="division-line"></p>`
+  );
+});
+
+document.querySelector("#sortByMeilleuresNotes").checked = true;
+
+// CHECKBOX section
+checkBoxSection.insertAdjacentHTML(
+  "beforeend",
+  `<legend class="checkbox-section-title">
         <span class="form-section-title">Specialité </span>
         <span class="open-button" id="open-specialite">
            <i class="fa-solid fa-circle-chevron-down"></i>
@@ -114,124 +151,39 @@ console.log(allFiltersToDisplay);
           <i class="fa-solid fa-circle-chevron-up"></i>
         </span>
     </legend>
-    <div id="foldable-specialite" class="hidden">
-        <p> 
-          <input
-            type="checkbox"
-            name="type[]"
-            class="form-checkbox"
-            value="xx"
-          />
-          <span class="checkmark"></span>
-          <label for="xx">xx</label>
-        </p>
-        <p>
-          <input
-            type="checkbox"
-            name="type[]"
-            class="form-checkbox"
-            value="yy"
-          />
-          <span class="checkmark"></span>
-          <label for="yy">yy</label>
-        </p>
-    <p>
-      <input
-        type="checkbox"
-        name="type[]"
-        class="form-checkbox"
-        value="zz"
-      />
-      <span class="checkmark"></span>
-      <label for="zz">zz</label>
-    </p>
-    <p>
-      <input
-        type="checkbox"
-        name="type[]"
-        class="form-checkbox"
-        value="ww"
-      />
-      <span class="checkmark"></span>
-      <label for="ww">ww</label>
-    </p>
-    <p>
-      <input
-        type="checkbox"
-        name="type[]"
-        class="form-checkbox"
-        value="qq"
-      />
-      <span class="checkmark"></span>
-      <label for="qq">qq</label>
-    </p>
-</div>
-<p class="division-line"></p>`
+    <div id="foldable-specialite" class="hidden"> 
+`
+);
+// Object.keys(obj).forEach(key => {
+//   console.log(key, obj[key]);
+// });
+Object.keys(allFiltersToDisplay.speciality).forEach((spec) => {
+  checkBoxSection.insertAdjacentHTML(
+    "beforeend",
+    ` <p>
+  <input
+    type="checkbox"
+    name="type[]"
+    class="form-checkbox"
+    value="${spec}"
+  />
+  <span class="checkmark"></span>
+  <label for="${spec}">${spec} <span class="nb-items">(${allFiltersToDisplay.speciality[spec]})</span></label>
+</p>`
   );
-  
+  // const specNbDisplay = document.querySelector(".nb-items");
+  // allFiltersToDisplay.speciality[spec] > 0
+  //   ? specNbDisplay.classList.add("nb-items-vert")
+  //   : specNbDisplay.classList.remove("nb-items-vert");
+});
 
-  /* <legend class="checkbox-section-title">
-            <span class="form-section-title">Specialité </span>
-            <span class="open-button" id="open-specialite">
-              <i class="fa-solid fa-circle-chevron-down"></i
-            ></span>
-            <span id="close-specialite" class="close-button hidden">
-              <i class="fa-solid fa-circle-chevron-up"></i
-            ></span>
-          </legend>
-          <div id="foldable-specialite" class="hidden">
-            <p>
-              <input
-                type="checkbox"
-                name="type[]"
-                class="form-checkbox"
-                value="xx"
-              />
-              <span class="checkmark"></span>
-              <label for="xx">xx</label>
-            </p>
-            <p>
-              <input
-                type="checkbox"
-                name="type[]"
-                class="form-checkbox"
-                value="yy"
-              />
-              <span class="checkmark"></span>
-              <label for="yy">yy</label>
-            </p>
-            <p>
-              <input
-                type="checkbox"
-                name="type[]"
-                class="form-checkbox"
-                value="zz"
-              />
-              <span class="checkmark"></span>
-              <label for="zz">zz</label>
-            </p>
-            <p>
-              <input
-                type="checkbox"
-                name="type[]"
-                class="form-checkbox"
-                value="ww"
-              />
-              <span class="checkmark"></span>
-              <label for="ww">ww</label>
-            </p>
-            <p>
-              <input
-                type="checkbox"
-                name="type[]"
-                class="form-checkbox"
-                value="qq"
-              />
-              <span class="checkmark"></span>
-              <label for="qq">qq</label>
-            </p>
-          </div>
-          <p class="division-line"></p> */
+checkBoxSection.insertAdjacentHTML(
+  "beforeend",
+  `
+  </div>
+  <p class="division-line"></p>`
+);
+
 // FORM VALUES
 let filterForm = document.forms["filter-form"];
 
@@ -260,6 +212,8 @@ filterForm.addEventListener("submit", (event) => {
   console.log(filters);
 
   // SLIDER
+  // console.log(event.priceRange);
+  console.log(this.priceRange);
   console.log(this.priceRange.value);
 });
 
@@ -267,6 +221,7 @@ filterForm.addEventListener("submit", (event) => {
 filterForm.addEventListener("reset", (event) => {
   console.log("reset");
   sliderValueDisplay.textContent = sliderValue;
+  // document.querySelector("#sortByMeilleuresNotes").checked = true;
   // console.log(sortValue);
   // console.log(checkedBoxes);
   console.log(this.priceRange.value);

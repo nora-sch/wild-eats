@@ -197,3 +197,10 @@ input[type="submit"] {
 .form-section-title {
   font-weight: 600;
 }
+
+.nb-items{
+  color: var(--light-color);
+}
+.nb-items-vert{
+  color: var(--accent-color);
+}

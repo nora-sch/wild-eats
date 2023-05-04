@@ -61,12 +61,12 @@ const getMaxPrice = (data) => {
 const getAllFiltersToDisplay = (data) => {
   const allFiltersDisplay = {
     sortBy: [],
-    speciality: [],
+    speciality: {},
     diet: [],
     organisation: [],
     price: null,
   };
-    // SORT BY
+  // SORT BY
   allFiltersDisplay.sortBy.push("Meilleures notes");
   allFiltersDisplay.sortBy.push("Prix");
   // ORGANISATION
@@ -77,17 +77,31 @@ const getAllFiltersToDisplay = (data) => {
   allFiltersDisplay.price = getMaxPrice(data);
   data.forEach((resto) => {
     // SPECIALITY
-    if (!allFiltersDisplay.speciality.includes(resto.specialite)) {
-      allFiltersDisplay.speciality.push(resto.specialite);
+    // if (!allFiltersDisplay.speciality.includes(resto.specialite)) {
+    //   allFiltersDisplay.speciality.push(resto.specialite);
+    // }
+    if (!allFiltersDisplay.speciality.hasOwnProperty(resto.specialite)) {
+      allFiltersDisplay.speciality[resto.specialite] = 1;
+    } else {
+      allFiltersDisplay.speciality[resto.specialite] =
+        allFiltersDisplay.speciality[resto.specialite] + 1;
     }
     // DIET
+    // resto.regime.forEach((regime) => {
+    //   if (
+    //     !allFiltersDisplay.diet.includes(regime) &&
+    //     regime !== null &&
+    //     regime != ""
+    //   ) {
+    //     allFiltersDisplay.diet.push(regime);
+    //   }
+    // });
     resto.regime.forEach((regime) => {
-      if (
-        !allFiltersDisplay.diet.includes(regime) &&
-        regime !== null &&
-        regime != ""
-      ) {
-        allFiltersDisplay.diet.push(regime);
+      if (!allFiltersDisplay.diet.hasOwnProperty(regime)) {
+        allFiltersDisplay.diet[regime] = 1;
+      } else {
+        allFiltersDisplay.diet[regime] =
+          allFiltersDisplay.diet[regime] + 1;
       }
     });
   });

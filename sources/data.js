@@ -281,7 +281,7 @@ const restaurants = [
         telephone: "04 42 58 98 54",
         specialite: 'Indian',
         prix: 25,
-        regime: [''],
+        regime: [],
         website: "https://www.maharaja-aix.com/shop/boutique/index.php",
         organisation:{
             surPlace: true,
@@ -334,7 +334,7 @@ const restaurants = [
         telephone: "07 85 94 85 20",
         specialite: 'Thailandais',
         prix: 35,
-        regime: ['végétarien', 'vegan', 'sans gluten'],
+        regime: ['végétarien', 'vegan', 'sans gluten', 'halal'],
         website: "https://www.pitaya-thaistreetfood.com/",
         organisation:{
             surPlace: true,

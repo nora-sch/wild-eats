@@ -99,10 +99,10 @@ const filters = {
 };
 
 // ADD FILTER DOM
-console.log(getAllFiltersToDisplay(restaurants));
 const checkBoxSection = document.querySelector(".form-checkbox-section");
 
-
+const allFiltersToDisplay = getAllFiltersToDisplay(restaurants);
+console.log(allFiltersToDisplay);
   checkBoxSection.insertAdjacentHTML(
     "beforeend",
     `<legend class="checkbox-section-title">

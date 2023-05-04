@@ -6,18 +6,18 @@ import {
   getAllFiltersToDisplay,
   getByMaxPrice,
   getBySpeciality,
+  getByDiet,
 } from "./filters.js";
 
 window.addEventListener("DOMContentLoaded", () => {
-  console.log(restaurants);
+  let dataToDisplay = restaurants;
+  console.log(dataToDisplay);
 
   const allFiltersToDisplay = getAllFiltersToDisplay(restaurants);
   console.log(allFiltersToDisplay);
 
   const restaurantTop10 = getTop10(restaurants); // restaurant Top 10
   const top10Length = getTop10(restaurants).length; // nb of restaurants
-  const allSortDescendant = getAllNoteDesc(restaurants); // all restaurants sorted by note Desc
-  const allSortAscendant = getAllNoteAsc(restaurants); // all restaurants sorted by note Asc
 
   // FILTER FACTORY
 
@@ -79,16 +79,21 @@ window.addEventListener("DOMContentLoaded", () => {
         default:
           returnRestaurants = restaurants;
       }
+      // console.log(returnRestaurants);
       // Speciality
       returnRestaurants = getBySpeciality(
         returnRestaurants,
         filters.speciality
       );
+      // console.log(returnRestaurants);
+      // Diet
+      returnRestaurants = getByDiet(returnRestaurants, filters.speciality);
       // Price
       returnRestaurants = getByMaxPrice(returnRestaurants, filters.maxPrice);
       return returnRestaurants;
     };
-    console.log(filteredResult(filters, restaurants));
+    dataToDisplay = filteredResult(filters, restaurants);
+    console.log(dataToDisplay);
   });
 
   // RESET
@@ -97,7 +102,9 @@ window.addEventListener("DOMContentLoaded", () => {
     document.querySelector("#slider-value").textContent =
       allFiltersToDisplay.price;
     filters = resetFilters();
+    dataToDisplay = restaurants;
     console.log(filters);
+    console.log(dataToDisplay);
   });
 
   console.log(filters);

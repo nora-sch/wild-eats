@@ -36,17 +36,27 @@ const getAllPriceAsc = (data) => {
 };
 // get restaurants by max price
 const getByMaxPrice = (data, maxPrice) => {
-  const res = data.filter(resto => resto.prix <= maxPrice);
+  const res = data.filter((resto) => resto.prix <= maxPrice);
   return res;
 };
 
 // get restaurants by speciality
 const getBySpeciality = (data, filterArray = []) => {
   let res = [];
-  data.forEach(resto =>{
-    filterArray.includes(resto.specialite) ? res.push(resto) : res;
-  })
-  return res;
+  data.forEach((resto) => {
+    filterArray.includes(resto.specialite) ? res.push(resto) : null;
+  });
+  return res.length > 0 ? res : data;
+};
+// get restaurants by diet
+const getByDiet = (data, filterArray = []) => {
+  let res = [];
+  data.forEach((resto) => {
+    resto.regime.map((regime) => firstToUpperCase(regime)).some((r) => filterArray.indexOf(r) >= 0)
+      ? res.push(resto)
+      : null;
+  });
+  return res.length > 0 ? res : data;
 };
 
 // get top 10 restaurants
@@ -131,5 +141,6 @@ export {
   getAllPriceAsc,
   getAllFiltersToDisplay,
   getByMaxPrice,
-  getBySpeciality
+  getBySpeciality,
+  getByDiet,
 };

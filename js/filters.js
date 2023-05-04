@@ -28,11 +28,25 @@ const getAllNoteAsc = (data) => {
 
 // get all restaurants sorted by price ascendant
 const getAllPriceAsc = (data) => {
-  var allAsc = data.slice(0);
+  let allAsc = data.slice(0);
   allAsc.sort(function (a, b) {
     return a.prix - b.prix;
   });
   return allAsc;
+};
+// get restaurants by max price
+const getByMaxPrice = (data, maxPrice) => {
+  const res = data.filter(resto => resto.prix <= maxPrice);
+  return res;
+};
+
+// get restaurants by speciality
+const getBySpeciality = (data, filterArray = []) => {
+  let res = [];
+  data.forEach(resto =>{
+    filterArray.includes(resto.specialite) ? res.push(resto) : res;
+  })
+  return res;
 };
 
 // get top 10 restaurants
@@ -116,4 +130,6 @@ export {
   getAllNoteAsc,
   getAllPriceAsc,
   getAllFiltersToDisplay,
+  getByMaxPrice,
+  getBySpeciality
 };

@@ -4,6 +4,8 @@ import {
   getAllNoteAsc,
   getAllPriceAsc,
   getAllFiltersToDisplay,
+  getByMaxPrice,
+  getBySpeciality,
 } from "./filters.js";
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -55,6 +57,7 @@ window.addEventListener("DOMContentLoaded", () => {
         checkedBoxes.push(box.value);
       }
     }
+    filters.speciality = checkedBoxes;
     console.log(checkedBoxes);
 
     // SLIDER
@@ -65,6 +68,7 @@ window.addEventListener("DOMContentLoaded", () => {
     // DISPLAY FILTERED RESULTS
     const filteredResult = (filters, restaurants) => {
       let returnRestaurants;
+      // SortBy
       switch (filters.sortBy) {
         case "MeilleuresNotes":
           returnRestaurants = getAllNoteDesc(restaurants);
@@ -75,6 +79,13 @@ window.addEventListener("DOMContentLoaded", () => {
         default:
           returnRestaurants = restaurants;
       }
+      // Speciality
+      returnRestaurants = getBySpeciality(
+        returnRestaurants,
+        filters.speciality
+      );
+      // Price
+      returnRestaurants = getByMaxPrice(returnRestaurants, filters.maxPrice);
       return returnRestaurants;
     };
     console.log(filteredResult(filters, restaurants));

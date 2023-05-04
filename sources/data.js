@@ -30,7 +30,7 @@ const restaurants = [
         note: 4,
         adresse: "Centre Commercial L'Ensoleillée, 724 Av. du Club Hippique, 13090 Aix-en-Provence",
         telephone: "04 42 52 24 59",
-        specialite: 'Francais',
+        specialite: 'Français',
         prix: 29.99,
         regime: [],
         website: "https://www.chapitre-vin.com/",
@@ -352,4 +352,4 @@ const restaurants = [
     }
 ]
 
-module.exports = restaurants;
+// module.exports = restaurants;

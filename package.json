@@ -2,6 +2,7 @@
   "name": "wild-eats",
   "version": "1.0.0",
   "description": "WILD projet  - site web de meilleurs restaurants à Aix en Provence",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

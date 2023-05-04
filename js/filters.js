@@ -14,17 +14,17 @@ const getAllNoteDesc = (data) => {
 
 // get all restaurants sorted by note ascendant
 const getAllNoteAsc = (data) => {
-    let allAsc = [];
-  
-    for (let i = 1; i <= 5; i++) {
-      data.forEach((restaurant) => {
-        if (restaurant.note === i) {
-            allAsc.push(restaurant);
-        }
-      });
-    }
-    return allAsc;
-  };
+  let allAsc = [];
+
+  for (let i = 1; i <= 5; i++) {
+    data.forEach((restaurant) => {
+      if (restaurant.note === i) {
+        allAsc.push(restaurant);
+      }
+    });
+  }
+  return allAsc;
+};
 
 // get top 10 restaurants
 /**
@@ -47,10 +47,58 @@ const getTop10 = (data) => {
   return arrayOf10;
 };
 
+// get max price
+const getMaxPrice = (data) => {
+  let maxPrice = 0;
+  data.forEach((resto) => {
+    resto.prix > maxPrice ? (maxPrice = resto.prix) : maxPrice;
+  });
+  return maxPrice;
+};
+// get max price from filtered
+
+// get all specialities
+const getAllFiltersToDisplay = (data) => {
+  const allFiltersDisplay = {
+    sortBy: [],
+    speciality: [],
+    diet: [],
+    organisation: [],
+    price: null,
+  };
+    // SORT BY
+  allFiltersDisplay.sortBy.push("Meilleures notes");
+  allFiltersDisplay.sortBy.push("Prix");
+  // ORGANISATION
+  allFiltersDisplay.organisation.push("Sur place");
+  allFiltersDisplay.organisation.push("Livraison");
+  allFiltersDisplay.organisation.push("A emporter");
+  // PRICE
+  allFiltersDisplay.price = getMaxPrice(data);
+  data.forEach((resto) => {
+    // SPECIALITY
+    if (!allFiltersDisplay.speciality.includes(resto.specialite)) {
+      allFiltersDisplay.speciality.push(resto.specialite);
+    }
+    // DIET
+    resto.regime.forEach((regime) => {
+      if (
+        !allFiltersDisplay.diet.includes(regime) &&
+        regime !== null &&
+        regime != ""
+      ) {
+        allFiltersDisplay.diet.push(regime);
+      }
+    });
+  });
+  return allFiltersDisplay;
+};
+
 // ======= EXPORTS =======
 
-module.exports = {
-  getTop10,
-  getAllNoteDesc,
-  getAllNoteAsc
-};
+// module.exports = {
+//   getTop10,
+//   getAllNoteDesc,
+//   getAllNoteAsc
+// };
+export { getTop10, getAllNoteDesc, getAllNoteAsc, getAllFiltersToDisplay };

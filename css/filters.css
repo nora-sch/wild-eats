@@ -200,7 +200,5 @@ input[type="submit"] {
 
 .nb-items{
   color: var(--light-color);
-}
-.nb-items-vert{
-  color: var(--accent-color);
+  font-size:12px;
 }

@@ -26,6 +26,15 @@ const getAllNoteAsc = (data) => {
   return allAsc;
 };
 
+// get all restaurants sorted by price ascendant
+const getAllPriceAsc = (data) => {
+  var allAsc = data.slice(0);
+  allAsc.sort(function (a, b) {
+    return a.prix - b.prix;
+  });
+  return allAsc;
+};
+
 // get top 10 restaurants
 /**
  *
@@ -57,7 +66,7 @@ const getMaxPrice = (data) => {
 };
 // get max price from filtered
 
-// get all specialities
+// get all filter values from sourcefile
 const getAllFiltersToDisplay = (data) => {
   const allFiltersDisplay = {
     sortBy: [],
@@ -72,36 +81,22 @@ const getAllFiltersToDisplay = (data) => {
   // ORGANISATION
   allFiltersDisplay.organisation.push("Sur place");
   allFiltersDisplay.organisation.push("Livraison");
-  allFiltersDisplay.organisation.push("A emporter");
+  allFiltersDisplay.organisation.push("À emporter");
   // PRICE
   allFiltersDisplay.price = getMaxPrice(data);
   data.forEach((resto) => {
     // SPECIALITY
-    // if (!allFiltersDisplay.speciality.includes(resto.specialite)) {
-    //   allFiltersDisplay.speciality.push(resto.specialite);
-    // }
     if (!allFiltersDisplay.speciality.hasOwnProperty(resto.specialite)) {
       allFiltersDisplay.speciality[resto.specialite] = 1;
     } else {
       allFiltersDisplay.speciality[resto.specialite] =
         allFiltersDisplay.speciality[resto.specialite] + 1;
     }
-    // DIET
-    // resto.regime.forEach((regime) => {
-    //   if (
-    //     !allFiltersDisplay.diet.includes(regime) &&
-    //     regime !== null &&
-    //     regime != ""
-    //   ) {
-    //     allFiltersDisplay.diet.push(regime);
-    //   }
-    // });
     resto.regime.forEach((regime) => {
       if (!allFiltersDisplay.diet.hasOwnProperty(regime)) {
         allFiltersDisplay.diet[regime] = 1;
       } else {
-        allFiltersDisplay.diet[regime] =
-          allFiltersDisplay.diet[regime] + 1;
+        allFiltersDisplay.diet[regime] = allFiltersDisplay.diet[regime] + 1;
       }
     });
   });
@@ -115,4 +110,10 @@ const getAllFiltersToDisplay = (data) => {
 //   getAllNoteDesc,
 //   getAllNoteAsc
 // };
-export { getTop10, getAllNoteDesc, getAllNoteAsc, getAllFiltersToDisplay };
+export {
+  getTop10,
+  getAllNoteDesc,
+  getAllNoteAsc,
+  getAllPriceAsc,
+  getAllFiltersToDisplay,
+};

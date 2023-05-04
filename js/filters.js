@@ -49,8 +49,8 @@ const getTop10 = (data) => {
 
 // ======= EXPORTS =======
 
-module.exports = {
-  getTop10,
-  getAllNoteDesc,
-  getAllNoteAsc
-};
+// module.exports = {
+//   getTop10,
+//   getAllNoteDesc,
+//   getAllNoteAsc
+// };

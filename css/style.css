@@ -38,7 +38,6 @@ nav{
 }
 
 #mainImage{
-
     width: 100%;
     object-fit: none;
     max-height: 50vh;
@@ -46,7 +45,6 @@ nav{
 }
 
 main{
-
     display: flex;
     flex-direction: row;
     margin: 0 auto;
@@ -57,59 +55,179 @@ main{
 aside{
     background-color: black;
     flex-grow: 1;
+    width: 50%;
     height: 2000px;
 }
 
 section{
     display: flex;
-    background-color: #d9d9d9d9;
     flex-grow: 2;
     flex-direction: column;
     padding: 40px;
     align-items: center;
+    width: 100%;
+    height: 2000px;
 }
 
-.main{
-    margin: 0;
-    padding: 0;
-    background-color: yellow;
-    width: 90%;
-    height: 500px;
+.div-top-dix{
+    margin-bottom: 30px;
+    position: relative;
     display: flex;
+    width: 100%;
+    height: 400px;
     justify-content: space-between;
+    box-shadow: 4px 5px 15px black;
+}
+
+.div-wrap-img{
+    display: flex;
+    width: 46%;
+    
+
+}
+
+.div-wrap-information{
+    padding: 0 0 0 10px;
+    display: flex;
+    flex-direction: column;
+    width: 54%;
     
 }
 
-.topdix{
-    position: absolute;
-    margin:10px ;
-    color: #E0DEDE;
-
-}
-
-.second-main-div{
-    color: white;
-    background-color: black;
-    width: 100%;
+.wrap-information{
     display: flex;
     justify-content: space-between;
+    width: 100%;
+
+}
+
+.wrap-titre{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 150px;
+    padding: 0px;
     margin: 0;
-    padding: 0;
-}
+} 
 
-.div-en-haut-a-gauche{
+.wrap-button{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     width: 50%;
-    height: 200px;
-background-color: aqua;
+    height: 150px;
+}
+
+.div-description{
+    box-sizing: border-box;
+    font-size: 14px;
+    width: 100%;
+    height: 150px;
+}
+
+.div-information{
+    width: 100%;
+    height: 150px;
+}
+
+.titre-top-dix{
+    color: #E0DEDE;
+    position: absolute;
+    margin: 19.92px;
+}
+
+.btn-organisation{
+    color: #E0DEDE;
+    border-radius: 20px;
+    width: fit-content;
+    padding: 4px 9px 4px 9px;
+    margin: 8px 10px 3px ;
+    
+    font-size: 12px;
+}
+
+.pizza{
+    width: 100%;
+}
+
+.take-away{
+    margin-top: 19.92px;
+ background-color: var(--element-color-medium);
+}
+
+.on-place{
+ background-color: var(--element-color-dark);
+}
+
+.delivery{
+ background-color: var(--element-color-light);
+}
+
+button{
+    border: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 300px;
+    margin: 10px;
+}
+
+.sur-image{
+    position: absolute;
+    background-color: gray;
+    bottom: 0;
+    right: 200 px;
 
 }
-.div-en-haut-a-droit{
+
+.button-div{
+    position: absolute;
+    bottom: 5px;
+    width: 600px;
+    right: 145px;
+}
+
+.div-card{
+    border-radius: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 300px;
+    justify-content: space-between;
+    box-shadow: 4px 5px 15px black;
+}
+
+.div-wrap-information-deux{
+    padding: 0 0 0 10px;
+    display: flex;
+    flex-direction: column;
+    width: 54%;
+}
+
+.div-information-deux{
+    width: 100%;
+    height: 100px;
+}
+
+.wrap-button-deux{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     width: 50%;
-    height: 200px;
-    background-color: beige;
+    height: 100px;
 }
 
+.wrap-titre-deux{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 130px;
+    padding: 0px;
+    margin: 0;
+}
 
-
-
-
+.pizza-radius{
+    width: 95%;
+    border-radius: 30px;
+    margin: 10px;
+}

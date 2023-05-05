@@ -30,7 +30,7 @@ const restaurants = [
         note: 4,
         adresse: "Centre Commercial L'Ensoleillée, 724 Av. du Club Hippique, 13090 Aix-en-Provence",
         telephone: "04 42 52 24 59",
-        specialite: 'Francais',
+        specialite: 'Français',
         prix: 29.99,
         regime: [],
         website: "https://www.chapitre-vin.com/",
@@ -281,7 +281,7 @@ const restaurants = [
         telephone: "04 42 58 98 54",
         specialite: 'Indian',
         prix: 25,
-        regime: [''],
+        regime: [],
         website: "https://www.maharaja-aix.com/shop/boutique/index.php",
         organisation:{
             surPlace: true,
@@ -334,7 +334,7 @@ const restaurants = [
         telephone: "07 85 94 85 20",
         specialite: 'Thailandais',
         prix: 35,
-        regime: ['végétarien', 'vegan', 'sans gluten'],
+        regime: ['végétarien', 'vegan', 'sans gluten', 'halal'],
         website: "https://www.pitaya-thaistreetfood.com/",
         organisation:{
             surPlace: true,
@@ -352,4 +352,4 @@ const restaurants = [
     }
 ]
 
-module.exports = restaurants;
+// module.exports = restaurants;

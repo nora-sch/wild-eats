@@ -11,6 +11,7 @@ body {
 }
 fieldset {
   border: 0;
+  padding:0;
 }
 .division-line {
   border-bottom: 1px solid;
@@ -132,8 +133,14 @@ input[type="reset"],
 input[type="submit"] {
   cursor: pointer;
 }
+
 .hidden {
   display: none;
+}
+
+.open-button,
+.close-button {
+  margin-left: 10px;
 }
 
 .searchbar-wrapper {
@@ -198,7 +205,13 @@ input[type="submit"] {
   font-weight: 600;
 }
 
-.nb-items{
+.nb-items {
   color: var(--light-color);
-  font-size:12px;
+  font-size: 12px;
+}
+
+.checkbox-section-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }

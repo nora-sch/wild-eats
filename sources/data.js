@@ -25,7 +25,7 @@ const restaurants = [
     },
     {
         id: 2,
-        nom: "Chapitre Vin - Le Bistrot Gourmand, Le Caviste & Le Bar à Vins",
+        nom: "Chapitre Vin - Le Bistrot ",
         description: "C'est un 🍽Bistrot, une 🍾Cave à Vins & un 🍻Bar à Vins. Maison artisanale depuis 2021 décernée par Gault&Millau Top 100 des Meilleures Cartes de Vins décerné par Terre de vins 🍽 Le Bistrot Gourmand : 12h00 / 14h30 du lundi au vendredi 🍷 La Cave : 9h00 / 16h00 lundi 9h00 / 19h00 mardi 9h00 / 20h00 du mercredi au vendredi 10h00 / 13h00 le samedi 🥂Venez découvrir un système unique sur la région, vous permettant de choisir votre verre de vin parmi 24 propositions. 🍷Le Bar à Vins : Mercredi et Jeudi 16h00 / 22h00 Vendredi 16h00 / 20h00 N'hésitez pas à nous contacter si vous souhaitez privatiser",
         note: 4,
         adresse: "Centre Commercial L'Ensoleillée, 724 Av. du Club Hippique, 13090 Aix-en-Provence",
@@ -48,7 +48,7 @@ const restaurants = [
     },
     {
         id: 3,
-        nom: "LA CANTINE By FEMEZON",
+        nom: "LA CANTINE ",
         description: "Nous vous accueillons à La Cantine by Femezon dans les Bouches-du-Rhône dans un cadre privilégié pour vous proposer une cuisine bistronomique raffinée. Nous mettons notre savoir-faire et notre expérience à votre service pour vous proposer des plats au goût unique. Parce que votre satisfaction est au cœur de nos préoccupations, vous pouvez également choisir la livraison de vos repas à domicile. Venez découvrir les vraies saveurs de notre région ! Nous vous suggérons des recettes typiques qui raviront vos convives.",
         note: 4,
         adresse: "11 Av. Jean et Marcel Fontenaille, 13100 Aix-en-Provence",
@@ -352,4 +352,4 @@ const restaurants = [
     }
 ]
 
-// module.exports = restaurants;
+module.exports = restaurants;

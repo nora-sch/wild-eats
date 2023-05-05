@@ -29,7 +29,41 @@
 
  <main>
     <aside>
-        salut
+        <div class="filter-wrapper">
+            <div class="searchbar-wrapper">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="search-field" />
+            </div>
+            <form id="filter-form" name="filter-form" action="" method="post">
+              <fieldset class="form-sort-section">
+                <!-- DOM  -->
+              </fieldset>
+              <fieldset class="form-checkbox-section">
+                <!-- DOM  -->
+              </fieldset>
+              <fieldset class="form-price-section">
+                <legend>
+                  <span class="form-section-title">Prix</span>
+                  <output id="slider-value"></output>
+                </legend>
+                <div class="slidecontainer">
+                  <!-- <output id="slider-value"></output> -->
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    value="100"
+                    class="slider"
+                    id="priceRange"
+                  />
+                </div>
+              </fieldset>
+              <div class="form-footer">
+                <input type="reset" value="Reinitialiser" />
+                <input type="submit" value="Valider" />
+              </div>
+            </form>
+          </div>
     </aside>
 
     <section>

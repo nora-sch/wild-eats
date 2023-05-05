@@ -52,7 +52,9 @@ const getBySpeciality = (data, filterArray = []) => {
 const getByDiet = (data, filterArray = []) => {
   let res = [];
   data.forEach((resto) => {
-    resto.regime.map((regime) => firstToUpperCase(regime)).some((r) => filterArray.indexOf(r) >= 0)
+    resto.regime
+      .map((regime) => firstToUpperCase(regime))
+      .some((r) => filterArray.indexOf(r) >= 0)
       ? res.push(resto)
       : null;
   });
@@ -88,7 +90,6 @@ const getMaxPrice = (data) => {
   });
   return maxPrice;
 };
-// get max price from filtered
 
 // get all filter values from sourcefile
 const getAllFiltersToDisplay = (data) => {
@@ -127,6 +128,28 @@ const getAllFiltersToDisplay = (data) => {
   return allFiltersDisplay;
 };
 
+// search by name
+const searchByName = (data, sentence) => {
+  let res = [];
+  let index = data.findIndex((resto) => resto.nom === sentence);
+  // let index = data.findIndex((resto) => resto.nom.includes(sentence));
+  if (index != -1) res.push(data[index]);
+  return res;
+};
+
+// // Sample array
+// var myArray = [
+//   {"id": 1, "name": "Alice"},
+//   {"id": 2, "name": "Peter"},
+//   {"id": 3, "name": "Harry"}
+// ];
+
+// // Get the index of Array item which matchs the id "2"
+// var index = myArray.findIndex(item => item.id === 2);
+
+// console.log(index);  // Prints: 1
+// console.log(myArray[index].name);  // Prints: Peter
+
 // ======= EXPORTS =======
 
 // module.exports = {
@@ -143,4 +166,5 @@ export {
   getByMaxPrice,
   getBySpeciality,
   getByDiet,
+  searchByName,
 };

@@ -15,4 +15,4 @@ const splitAndJoin = (sentence) => {
   return res;
 };
 
-// const splitAndJoin = (sentence) => sentence.split('-').shift().join('-');
+

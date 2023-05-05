@@ -154,7 +154,7 @@ input[type="submit"] {
   left: 12px;
   color: var(--element-color-dark);
 }
-.search-field {
+#search-field {
   width: 100%;
   box-sizing: border-box;
   height: 35px;
@@ -165,7 +165,7 @@ input[type="submit"] {
   /* background-color: #e0dede38; */
   background-color: white;
 }
-.search-field:focus {
+#search-field:focus {
   outline: none;
   /* background-color: white; */
   background-color: #e0dede38;

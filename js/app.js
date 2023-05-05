@@ -7,6 +7,7 @@ import {
   getByMaxPrice,
   getBySpeciality,
   getByDiet,
+  searchByName,
 } from "./filters.js";
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -108,4 +109,16 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   console.log(filters);
+});
+
+// SEARCHBAR
+const searchBar = document.querySelector("#search-field");
+
+searchBar.addEventListener("change", (e) => {
+  let res = searchByName(restaurants, e.currentTarget.value);
+  if (res.length > 0) {
+    console.log(res);
+  } else {
+    console.log("Pas de restaurant avec ce nom!");
+  }
 });

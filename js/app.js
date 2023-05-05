@@ -59,7 +59,7 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     }
     filters.speciality = checkedBoxes;
-    console.log(checkedBoxes);
+    // console.log(checkedBoxes);
 
     // SLIDER
     filters.maxPrice = parseInt(document.querySelector(".slider").value);

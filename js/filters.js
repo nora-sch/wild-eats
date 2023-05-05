@@ -132,23 +132,9 @@ const getAllFiltersToDisplay = (data) => {
 const searchByName = (data, sentence) => {
   let res = [];
   let index = data.findIndex((resto) => resto.nom === sentence);
-  // let index = data.findIndex((resto) => resto.nom.includes(sentence));
   if (index != -1) res.push(data[index]);
   return res;
 };
-
-// // Sample array
-// var myArray = [
-//   {"id": 1, "name": "Alice"},
-//   {"id": 2, "name": "Peter"},
-//   {"id": 3, "name": "Harry"}
-// ];
-
-// // Get the index of Array item which matchs the id "2"
-// var index = myArray.findIndex(item => item.id === 2);
-
-// console.log(index);  // Prints: 1
-// console.log(myArray[index].name);  // Prints: Peter
 
 // ======= EXPORTS =======
 
@@ -157,6 +143,7 @@ const searchByName = (data, sentence) => {
 //   getAllNoteDesc,
 //   getAllNoteAsc
 // };
+
 export {
   getTop10,
   getAllNoteDesc,

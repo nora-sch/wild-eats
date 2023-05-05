@@ -14,17 +14,52 @@ const getAllNoteDesc = (data) => {
 
 // get all restaurants sorted by note ascendant
 const getAllNoteAsc = (data) => {
-    let allAsc = [];
-  
-    for (let i = 1; i <= 5; i++) {
-      data.forEach((restaurant) => {
-        if (restaurant.note === i) {
-            allAsc.push(restaurant);
-        }
-      });
-    }
-    return allAsc;
-  };
+  let allAsc = [];
+
+  for (let i = 1; i <= 5; i++) {
+    data.forEach((restaurant) => {
+      if (restaurant.note === i) {
+        allAsc.push(restaurant);
+      }
+    });
+  }
+  return allAsc;
+};
+
+// get all restaurants sorted by price ascendant
+const getAllPriceAsc = (data) => {
+  let allAsc = data.slice(0);
+  allAsc.sort(function (a, b) {
+    return a.prix - b.prix;
+  });
+  return allAsc;
+};
+// get restaurants by max price
+const getByMaxPrice = (data, maxPrice) => {
+  const res = data.filter((resto) => resto.prix <= maxPrice);
+  return res;
+};
+
+// get restaurants by speciality
+const getBySpeciality = (data, filterArray = []) => {
+  let res = [];
+  data.forEach((resto) => {
+    filterArray.includes(resto.specialite) ? res.push(resto) : null;
+  });
+  return res.length > 0 ? res : data;
+};
+// get restaurants by diet
+const getByDiet = (data, filterArray = []) => {
+  let res = [];
+  data.forEach((resto) => {
+    resto.regime
+      .map((regime) => firstToUpperCase(regime))
+      .some((r) => filterArray.indexOf(r) >= 0)
+      ? res.push(resto)
+      : null;
+  });
+  return res.length > 0 ? res : data;
+};
 
 // get top 10 restaurants
 /**
@@ -47,6 +82,74 @@ const getTop10 = (data) => {
   return arrayOf10;
 };
 
+// get max price
+const getMaxPrice = (data) => {
+  let maxPrice = 0;
+  data.forEach((resto) => {
+    resto.prix > maxPrice ? (maxPrice = resto.prix) : maxPrice;
+  });
+  return maxPrice;
+};
+
+// get all filter values from sourcefile
+const getAllFiltersToDisplay = (data) => {
+  const allFiltersDisplay = {
+    sortBy: [],
+    speciality: {},
+    diet: [],
+    organisation: [],
+    price: null,
+  };
+  // SORT BY
+  allFiltersDisplay.sortBy.push("Meilleures notes");
+  allFiltersDisplay.sortBy.push("Prix");
+  // ORGANISATION
+  allFiltersDisplay.organisation.push("Sur place");
+  allFiltersDisplay.organisation.push("Livraison");
+  allFiltersDisplay.organisation.push("À emporter");
+  // PRICE
+  allFiltersDisplay.price = getMaxPrice(data);
+  data.forEach((resto) => {
+    // SPECIALITY
+    if (!allFiltersDisplay.speciality.hasOwnProperty(resto.specialite)) {
+      allFiltersDisplay.speciality[resto.specialite] = 1;
+    } else {
+      allFiltersDisplay.speciality[resto.specialite] =
+        allFiltersDisplay.speciality[resto.specialite] + 1;
+    }
+    resto.regime.forEach((regime) => {
+      if (!allFiltersDisplay.diet.hasOwnProperty(regime)) {
+        allFiltersDisplay.diet[regime] = 1;
+      } else {
+        allFiltersDisplay.diet[regime] = allFiltersDisplay.diet[regime] + 1;
+      }
+    });
+  });
+  return allFiltersDisplay;
+};
+
+// search by name
+const searchByName = (data, sentence) => {
+  let res = [];
+  let index = data.findIndex((resto) => resto.nom === sentence);
+  // let index = data.findIndex((resto) => resto.nom.includes(sentence));
+  if (index != -1) res.push(data[index]);
+  return res;
+};
+
+// // Sample array
+// var myArray = [
+//   {"id": 1, "name": "Alice"},
+//   {"id": 2, "name": "Peter"},
+//   {"id": 3, "name": "Harry"}
+// ];
+
+// // Get the index of Array item which matchs the id "2"
+// var index = myArray.findIndex(item => item.id === 2);
+
+// console.log(index);  // Prints: 1
+// console.log(myArray[index].name);  // Prints: Peter
+
 // ======= EXPORTS =======
 
 // module.exports = {
@@ -54,3 +157,14 @@ const getTop10 = (data) => {
 //   getAllNoteDesc,
 //   getAllNoteAsc
 // };
+export {
+  getTop10,
+  getAllNoteDesc,
+  getAllNoteAsc,
+  getAllPriceAsc,
+  getAllFiltersToDisplay,
+  getByMaxPrice,
+  getBySpeciality,
+  getByDiet,
+  searchByName,
+};
